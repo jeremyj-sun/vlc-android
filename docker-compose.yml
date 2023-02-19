@@ -20,3 +20,4 @@ services:
     working_dir: /home/videolan/
     volumes:
       - ./:/home/videolan/
+    command: ./docker-init.sh
