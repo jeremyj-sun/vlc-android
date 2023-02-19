@@ -32,6 +32,8 @@ env.sh
 .*.swp
 Thumbs.db
 .bash_history
+.android
+.gitconfig
 
 # Signage keys
 *.keystore
