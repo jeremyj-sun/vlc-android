@@ -1,0 +1,22 @@
+# Start container: docker compose up -d
+# Remove container: docker compose down
+# Execute build on windows: 
+# docker exec -it vlc-android bash
+# sed -i 's/\r//' buildsystem/compile.sh && buildsystem/compile.sh -a armeabi-v7a 
+
+# Recommended actions in the Dockerfile:
+# Create a working directory at /home/videolan/build and mount the root of this git repo to /home/videolan/build
+# Process the compile.sh script with sed -i 's/\r//
+# Run the git config steps (git config --global user.name "VLC Android" && git config --global user.email buildbot@videolan.org)
+# Properly set all environment variables
+
+version: "3"
+
+services:
+  vlc-android:
+    container_name: vlc-android
+    image: registry.videolan.org/vlc-debian-android:20221214124003
+    tty: true
+    working_dir: /home/videolan/
+    volumes:
+      - ./:/home/videolan/
